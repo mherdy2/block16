@@ -8,28 +8,16 @@ const timmy = {
   subscription: false,
   coupon: true,
 };
-const sarah = {
-  prescription: "diphenhydramine",
-  pricePerRefill: 50,
-  refills: 1,
-  subscription: true,
-  coupon: false,
-};
-const rocky = {
-  prescription: "phenylephrine",
-  pricePerRefill: 30,
-  refills: 5,
-  subscription: true,
-  coupon: true,
-};
-
 // timmy's discount prescription is "acetaminophen"
-
-function subscriptionDiscount(timmy, sarah, rocky) {
-  const discount = timmy.pricePerRefill * timmy.refills;
-  if (timmy.subscription) {
-    return discount + sarah.pricePerRefill * sarah.refills;
-  } else {
-    return discount + rocky.pricePerRefill * rocky.refills;
-  }
+function timmyDiscount(pricePerRefill, refills) {
+  return timmy.pricePerRefill * timmy.refills;
+  const totalRefills = pricePreRefill * refills;
 }
+if (timmy.subscription === true) {
+  return totalRefills - totalRefills * 0.25;
+} else if (timmy.coupon === true) {
+  return totalRefills - 10;
+}
+const appliedDiscount = timmyDiscount(timmy.pricePerRefill, timmy.refills);
+console.log(appliedDiscount);
+// console.log(timmyDiscount(timmy.pricePerRefill, timmy.refills));
