@@ -22,3 +22,14 @@ const rocky = {
   subscription: true,
   coupon: true,
 };
+
+// timmy's discount prescription is "acetaminophen"
+
+function subscriptionDiscount(timmy, sarah, rocky) {
+  const discount = timmy.pricePerRefill * timmy.refills;
+  if (timmy.subscription) {
+    return discount + sarah.pricePerRefill * sarah.refills;
+  } else {
+    return discount + rocky.pricePerRefill * rocky.refills;
+  }
+}
