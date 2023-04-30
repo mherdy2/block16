@@ -8,16 +8,33 @@ const timmy = {
   subscription: false,
   coupon: true,
 };
-// timmy's discount prescription is "acetaminophen"
-function timmyDiscount(pricePerRefill, refills) {
-  return timmy.pricePerRefill * timmy.refills;
-  const totalRefills = pricePerRefill * refills;
+// const sarah = {
+//   prescription: "diphenhydramine",
+//   pricePerRefill: 50,
+//   refills: 1,
+//   subscription: true,
+//   coupon: false,
+// };
+
+// const rocky = {
+//   prescription: "phenylephrine",
+//   pricePerRefill: 30,
+//   refills: 5,
+//   subscription: true,
+//   coupon: true,
+// };
+
+function totalPrice(pricePerRefill, refills) {
+  return pricePerRefill * refills;
 }
-if (timmy.subscription === true) {
-  return totalRefills - totalRefills * 0.25;
-} else if (timmy.coupon === true) {
-  return totalRefills - 10;
+const totalAmount = totalPrice(timmy.pricePerRefill, timmy.refills);
+
+function addDiscounts(totalAmount) {
+  if (timmy.subscription === true) {
+    return totalAmount - totalAmount * 0.25;
+  } else if (timmy.coupon === true) {
+    return totalAmount - 10;
+  }
 }
-const appliedDiscount = timmyDiscount(timmy.pricePerRefill, timmy.refills);
-console.log(appliedDiscount);
-// console.log(timmyDiscount(timmy.pricePerRefill, timmy.refills));
+const finalAmount = addDiscounts(totalAmount);
+console.log("Your Grand Total is", finalAmount);
