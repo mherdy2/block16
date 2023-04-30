@@ -24,11 +24,13 @@ const timmy = {
 //   coupon: true,
 // };
 
+// create a function that calculates the total price of prescription
 function totalPrice(pricePerRefill, refills) {
   return pricePerRefill * refills;
 }
 const totalAmount = totalPrice(timmy.pricePerRefill, timmy.refills);
 
+// create a function that adds the subscription/coupon discount to the total amount using if/else statements
 function addDiscounts(totalAmount) {
   if (timmy.subscription === true) {
     return totalAmount - totalAmount * 0.25;
