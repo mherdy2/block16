@@ -11,7 +11,7 @@ const timmy = {
 // timmy's discount prescription is "acetaminophen"
 function timmyDiscount(pricePerRefill, refills) {
   return timmy.pricePerRefill * timmy.refills;
-  const totalRefills = pricePreRefill * refills;
+  const totalRefills = pricePerRefill * refills;
 }
 if (timmy.subscription === true) {
   return totalRefills - totalRefills * 0.25;
