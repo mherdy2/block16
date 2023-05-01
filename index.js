@@ -8,35 +8,35 @@ const timmy = {
   subscription: false,
   coupon: true,
 };
-// const sarah = {
-//   prescription: "diphenhydramine",
-//   pricePerRefill: 50,
-//   refills: 1,
-//   subscription: true,
-//   coupon: false,
-// };
+const sarah = {
+  prescription: "diphenhydramine",
+  pricePerRefill: 50,
+  refills: 1,
+  subscription: true,
+  coupon: false,
+};
 
-// const rocky = {
-//   prescription: "phenylephrine",
-//   pricePerRefill: 30,
-//   refills: 5,
-//   subscription: true,
-//   coupon: true,
-// };
+const rocky = {
+  prescription: "phenylephrine",
+  pricePerRefill: 30,
+  refills: 5,
+  subscription: true,
+  coupon: false,
+};
 
 // create a function that calculates the total price of prescription
 function totalPrice(pricePerRefill, refills) {
   return pricePerRefill * refills;
 }
-const totalAmount = totalPrice(timmy.pricePerRefill, timmy.refills);
+const totalAmount = totalPrice(rocky.pricePerRefill, rocky.refills);
 
 // create a function that adds the subscription/coupon discount to the total amount using if/else statements
 function addDiscounts(totalAmount) {
-  if (timmy.subscription === true) {
+  if (rocky.subscription === true) {
     return totalAmount - totalAmount * 0.25;
-  } else if (timmy.coupon === true) {
+  } else if (rocky.coupon === true) {
     return totalAmount - 10;
-  }
+  } else return totalAmount;
 }
 const finalAmount = addDiscounts(totalAmount);
 console.log("Your Grand Total is", finalAmount);
