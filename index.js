@@ -34,11 +34,11 @@ function totalPrice(pricePerRefill, refills) {
 // create a function that adds the subscription/coupon discount to the total amount using if/else statements
 function addDiscounts(customer) {
   const totalAmount = totalPrice(customer.pricePerRefill, customer.refills);
-  if (customer.subscription === true && customer.coupon === true) {
+  if (customer.subscription && customer.coupon) {
     return totalAmount - (totalAmount * x + y);
-  } else if (customer.subscription === true) {
+  } else if (customer.subscription) {
     return totalAmount - totalAmount * x;
-  } else if (customer.coupon === true) {
+  } else if (customer.coupon) {
     return totalAmount - y;
   } else {
     return totalAmount;
