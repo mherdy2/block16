@@ -32,11 +32,15 @@ const totalAmount = totalPrice(rocky.pricePerRefill, rocky.refills);
 
 // create a function that adds the subscription/coupon discount to the total amount using if/else statements
 function addDiscounts(totalAmount) {
-  if (rocky.subscription === true) {
+  if (rocky.subscription === true && timmy.coupon === true) {
+    return totalAmount - totalAmount * 0.25 - 10;
+  } else if (rocky.subscription === true) {
     return totalAmount - totalAmount * 0.25;
-  } else if (rocky.coupon === true) {
+  } else if (timmy.coupon === true) {
     return totalAmount - 10;
-  } else return totalAmount;
+  } else {
+    return totalAmount;
+  }
 }
 const finalAmount = addDiscounts(totalAmount);
 console.log("Your Grand Total is", finalAmount);
