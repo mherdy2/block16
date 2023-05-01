@@ -27,6 +27,7 @@ const rocky = {
 // declaring variables for discounts
 let x = 0.25;
 let y = 10;
+
 // create a function that calculates the total price of prescription
 function totalPrice(pricePerRefill, refills) {
   return pricePerRefill * refills;
