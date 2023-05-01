@@ -1,6 +1,3 @@
-// If a customer has a subscription, the customer will receive a 25% discount after the refill total has been calculated.
-// If the customer has a coupon, the customer will receive a $10 discount after the subscription discount has been calculated.
-// At the end of the script, you should return and log the string "Your grand total is ${finalAmount}."
 const timmy = {
   prescription: "acetaminophen",
   pricePerRefill: 25,
@@ -8,6 +5,7 @@ const timmy = {
   subscription: false,
   coupon: true,
 };
+
 const sarah = {
   prescription: "diphenhydramine",
   pricePerRefill: 50,
@@ -20,8 +18,8 @@ const rocky = {
   prescription: "phenylephrine",
   pricePerRefill: 30,
   refills: 5,
-  subscription: false,
-  coupon: false,
+  subscription: true,
+  coupon: true,
 };
 
 // declaring variables for discounts
@@ -32,19 +30,26 @@ let y = 10;
 function totalPrice(pricePerRefill, refills) {
   return pricePerRefill * refills;
 }
-const totalAmount = totalPrice(rocky.pricePerRefill, rocky.refills);
 
 // create a function that adds the subscription/coupon discount to the total amount using if/else statements
-function addDiscounts(totalAmount) {
-  if (rocky.subscription === true && rocky.coupon === true) {
-    return totalAmount - (totalAmount * [x] + y);
-  } else if (rocky.subscription === true) {
+function addDiscounts(customer) {
+  const totalAmount = totalPrice(customer.pricePerRefill, customer.refills);
+  if (customer.subscription === true && customer.coupon === true) {
+    return totalAmount - (totalAmount * x + y);
+  } else if (customer.subscription === true) {
     return totalAmount - totalAmount * x;
-  } else if (rocky.coupon === true) {
+  } else if (customer.coupon === true) {
     return totalAmount - y;
   } else {
     return totalAmount;
   }
 }
-const finalAmount = addDiscounts(totalAmount);
-console.log("Your Grand Total is", finalAmount);
+
+const timmyFinalAmount = addDiscounts(timmy);
+console.log(`Timmy's Grand Total is $${timmyFinalAmount}.`);
+
+const sarahFinalAmount = addDiscounts(sarah);
+console.log(`Sarah's Grand Total is $${sarahFinalAmount}.`);
+
+const rockyFinalAmount = addDiscounts(rocky);
+console.log(`Rocky's Grand Total is $${rockyFinalAmount}.`);
