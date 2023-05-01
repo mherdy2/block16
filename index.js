@@ -44,7 +44,7 @@ function addDiscounts(customer) {
     return totalAmount;
   }
 }
-
+// printing the final amount of the prescription discounts for each customer
 const timmyFinalAmount = addDiscounts(timmy);
 console.log(`Timmy's Grand Total is $${timmyFinalAmount}.`);
 
